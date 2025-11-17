@@ -135,7 +135,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
+            padding: 20px 0;
             position: relative;
         }
 
@@ -153,8 +153,8 @@
         }
 
         .logo img {
-            width: 100px;
-            height: 100px;
+            width: 150px;
+            height: 150px;
             border-radius: 2.5cm;
             object-fit: cover;
             border: 3px solid var(--secondary);
@@ -163,17 +163,25 @@
 
         /* Mobile logo adjustments */
         @media (max-width: 768px) {
+            .header-container {
+                padding: 15px 0;
+            }
+            
             .logo img {
-                width: 80px;
-                height: 80px;
+                width: 160px;
+                height: 160px;
                 border-radius: 1.5cm;
             }
         }
 
         @media (max-width: 480px) {
+            .header-container {
+                padding: 12px 0;
+            }
+            
             .logo img {
-                width: 70px;
-                height: 70px;
+                width: 140px;
+                height: 140px;
                 border-radius: 1.5cm;
             }
         }
@@ -405,8 +413,43 @@
             transition: var(--transition);
         }
 
+        /* Hot drinks images - use contain to fit properly */
+        .menu-item[data-category="hot_drinks"] .menu-item-img img {
+            object-fit: contain;
+            background: #f5f5f5;
+            padding: 10px;
+        }
+
+        /* Water image - handle portrait orientation */
+        .menu-item[data-category="cold_drinks"] .menu-item-img img[data-item-id="909"],
+        .menu-item[data-category="cold_drinks"] .menu-item-img img[alt*="WATER"],
+        .menu-item[data-category="cold_drinks"] .menu-item-img img[src*="Wadur"] {
+            object-fit: contain;
+            background: #f5f5f5;
+            padding: 10px;
+        }
+
+        /* Zoom out specific cold drink images */
+        .menu-item[data-category="cold_drinks"] .menu-item-img img[data-item-id="901"],
+        .menu-item[data-category="cold_drinks"] .menu-item-img img[data-item-id="902"],
+        .menu-item[data-category="cold_drinks"] .menu-item-img img[data-item-id="903"],
+        .menu-item[data-category="cold_drinks"] .menu-item-img img[data-item-id="904"] {
+            object-fit: contain;
+            background: #f5f5f5;
+            padding: 15px;
+            transform: scale(0.85);
+        }
+
         .menu-item:hover .menu-item-img img {
             transform: scale(1.05);
+        }
+
+        /* Adjust hover effect for zoomed out images */
+        .menu-item[data-category="cold_drinks"]:hover .menu-item-img img[data-item-id="901"],
+        .menu-item[data-category="cold_drinks"]:hover .menu-item-img img[data-item-id="902"],
+        .menu-item[data-category="cold_drinks"]:hover .menu-item-img img[data-item-id="903"],
+        .menu-item[data-category="cold_drinks"]:hover .menu-item-img img[data-item-id="904"] {
+            transform: scale(0.95);
         }
 
         .menu-item-content {
@@ -1176,7 +1219,7 @@
 
         @media (max-width: 768px) {
             .header-container {
-                padding: 10px 0;
+                padding: 15px 0;
             }
             
             nav {
@@ -1585,13 +1628,19 @@
         }
 
         .option-btn {
-            padding: 5px 10px;
+            padding: 10px 12px;
             border: 1px solid var(--primary-light);
             background: white;
             border-radius: 4px;
             cursor: pointer;
             transition: var(--transition);
             font-size: 0.8rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            flex: 1;
+            min-width: 0;
         }
 
         .option-btn.active {
@@ -1608,7 +1657,11 @@
             font-size: 0.9rem;
             color: var(--secondary);
             font-weight: 600;
-            margin-left: 5px;
+            margin-top: 4px;
+        }
+
+        .option-btn.active .option-price {
+            color: white;
         }
 
         /* Responsive Design */
@@ -1706,14 +1759,13 @@
         <div class="container">
             <div class="section-title">
                 <h2>Our Story</h2>
-                <p>Discover the coastal passion and tradition behind our delicious creations</p>
             </div>
             <div class="about-content">
                 <div class="about-text">
                     <h3>Welcome to PIES AND GRILLS</h3>
                     <p>Nestled in the heart of Pietermaritzburg, PIES AND GRILLS is a culinary destination where traditional comfort food meets contemporary flair. Our restaurant was born from a passion for creating exceptional dining experiences that celebrate the rich culinary heritage of South Africa while embracing modern techniques and flavors.</p>
                     <p>At the heart of our kitchen is a commitment to quality and authenticity. We source the freshest local ingredients, from prime cuts of meat to seasonal vegetables, ensuring every dish tells a story of flavor and craftsmanship. Our signature pies feature buttery, flaky crusts enveloping rich, savory fillings that have become the talk of the town.</p>
-                    <p>Our grill masters take pride in their art, carefully preparing each cut to perfection over open flames. Whether it's our succulent steaks, tender grilled chicken, or perfectly charred seafood, every dish reflects our dedication to culinary excellence. We believe that great food brings people together, creating memories that last long after the meal is over.</p>
+                    <p>Our grill masters take pride in their art, carefully preparing each cut to perfection over open flames. Whether it's our succulent steaks or tender grilled chicken, every dish reflects our dedication to culinary excellence. We believe that great food brings people together, creating memories that last long after the meal is over.</p>
                     <a href="#menu" class="btn">Explore Our Menu</a>
                 </div>
                 <div class="about-image">
@@ -2026,9 +2078,9 @@ const menuItems = [
     { id: 103, name: "THE WORSO WAY", price: 95.00, description: "2 EGGS, 2 RASHERS OF BACON, GRILLED MUSHROOMS, GRILLED TOMATO, 2 SLICES OF TOAST", category: "breakfast", image: "assets/images/menu/theworso way.jpg" },
     { id: 104, name: "THE CLUB HOUSE", price: 110.00, description: "2 eggs, 3 rashers of bacon, 1 pork sausage, grilled mushrooms, grilled tomato, baked beans, and 2 slices of toast", category: "breakfast", image: "assets/images/menu/clubhouse.jpeg" },
     { id: 105, name: "AVO-EGG", price: 75.00, description: "Sliced avocado, scrambled eggs, 2 viennas, onion rings, 2 slices of toast", category: "breakfast", image: "assets/images/menu/breakfast-avo-egg.jpg" },
-    { id: 106, name: "MINCE ON TOAST", price: 85.00, description: "Saucy mince with beans, melted cheddar cheese, egg, 2 slices of toast", category: "breakfast", image: "assets/images/menu/breakfast-mince-on-toast.jpg" },
+    { id: 106, name: "MINCE ON TOAST", price: 85.00, description: "Saucy mince with beans, melted cheddar cheese, egg, 2 slices of toast", category: "breakfast", image: "assets/images/menu/mince on toast final.jpeg" },
     { id: 107, name: "BREAKFAST BANGERS", price: 79.00, description: "Chicken/Beef/Pork/Mutton 2 bangers, 2 eggs, 2 toasts", category: "breakfast", image: "assets/images/menu/standard.jpg" },
-    { id: 108, name: "OMELETTE", price: 85.00, description: "3 eggs, served with 2 toast slices and fillings of your choice (Bacon/Onion/Tomato/Cheese/Ham/Green pepper/Mushrooms)", category: "breakfast", image: "assets/images/menu/omlette.jpg" },
+    { id: 108, name: "OMELETTE", price: 85.00, description: "3 eggs, served with 2 toast slices and fillings of your choice (Bacon/Onion/Tomato/Cheese/Ham/Green pepper/Mushrooms)", category: "breakfast", image: "assets/images/menu/Omelet as a meal.jpg" },
     
     // BUILD YOUR BREAKFAST (Add-ons) - SEPARATE SECTION
     { id: 116, name: "MUSHROOMS", price: 25.00, description: "Grilled mushrooms - perfect addition to any breakfast", category: "build_your_breakfast", image: "assets/images/menu/MUSHROOMS.jpg" },
@@ -2097,7 +2149,7 @@ const menuItems = [
         mealPrice: 68.00,
         description: "Sliced chicken, cheese, veggies and sauce", 
         category: "wraps", 
-        image: "assets/images/menu/CHICKEN MAYO WRAP.jpg",
+        image: "assets/images/menu/Chicken wrap as a meal.jpg",
         hasMealOption: true
     },
     { 
@@ -2107,7 +2159,7 @@ const menuItems = [
         mealPrice: 74.00,
         description: "Sliced chicken, cheese, veggies and sauce", 
         category: "wraps", 
-        image: "assets/images/menu/CHICKEN MAYO WRAP.jpg",
+        image: "assets/images/menu/Chicken wrap as a meal.jpg",
         hasMealOption: true
     },
     { 
@@ -2140,9 +2192,9 @@ const menuItems = [
         name: "HOT DOG", 
         price: 25.00, 
         mealPrice: 45.00,
-        description: "Classic hot dog served with fries as a meal", 
+        description: "Classic hot dog", 
         category: "grills", 
-        image: "assets/images/menu/hot-dog.jpg",
+        image: "assets/images/menu/Hot dog As a meal.jpg",
         hasMealOption: true
     },
     { 
@@ -2150,7 +2202,7 @@ const menuItems = [
         name: "BOEREWORS ROLL", 
         price: 30.00, 
         mealPrice: 48.00,
-        description: "Traditional South African boerewors in a roll, served with fries as a meal", 
+        description: "Traditional South African boerewors in a roll", 
         category: "grills", 
         image: "assets/images/menu/boerewors-roll.jpg",
         hasMealOption: true
@@ -2160,7 +2212,7 @@ const menuItems = [
         name: "QUARTER CHICKEN GRILL", 
         price: 45.00, 
         mealPrice: 65.00,
-        description: "Quarter chicken grill served with fries as a meal", 
+        description: "Quarter chicken grill", 
         category: "grills", 
         image: "assets/images/menu/quater.jpeg",
         hasMealOption: true
@@ -2172,7 +2224,7 @@ const menuItems = [
         name: "QUARTER CHICKEN GRILL", 
         price: 45.00, 
         mealPrice: 85.00,
-        description: "Quarter chicken grill. Only the meal includes fries, 2 toast and salad", 
+        description: "Quarter chicken grill", 
         category: "grill_specials", 
         image: "assets/images/menu/quater.jpeg",
         hasMealOption: true
@@ -2182,9 +2234,9 @@ const menuItems = [
         name: "RUMP STEAK", 
         price: 75.00, 
         mealPrice: 125.00,
-        description: "250 grams of rump steak. Only the meal includes fries, 2 toast and salad", 
+        description: "250 grams of rump steak", 
         category: "grill_specials", 
-        image: "assets/images/menu/rumpsteak.jpeg",
+        image: "assets/images/menu/steakandtoast.jpg",
         hasMealOption: true
     },
     { 
@@ -2192,7 +2244,7 @@ const menuItems = [
         name: "T-BONE STEAK", 
         price: 79.00, 
         mealPrice: 135.00,
-        description: "250 grams of T-Bone steak (Grilled). Only the meal includes fries, 2 toast and salad", 
+        description: "250 grams of T-Bone steak (Grilled)", 
         category: "grill_specials", 
         image: "assets/images/menu/steak-t-bone.jpg",
         hasMealOption: true
@@ -2202,7 +2254,7 @@ const menuItems = [
         name: "PORK CHOPS", 
         price: 65.00, 
         mealPrice: 120.00,
-        description: "400 grams of pork chops. Only the meal includes fries, 2 toast and salad", 
+        description: "400 grams of pork chops", 
         category: "grill_specials", 
         image: "assets/images/menu/pork-chops.jpg",
         hasMealOption: true
@@ -2212,7 +2264,7 @@ const menuItems = [
         name: "LAMB CHOPS", 
         price: 150.00, 
         mealPrice: 150.00,
-        description: "Lamb chops. Only the meal includes fries, 2 toast and salad", 
+        description: "Lamb chops", 
         category: "grill_specials", 
         image: "assets/images/menu/lamb-chops.jpg",
         hasMealOption: false
@@ -2222,16 +2274,16 @@ const menuItems = [
         name: "MEGA GRILL", 
         price: 160.00, 
         mealPrice: 210.00,
-        description: "(BOEREWORS, LAMB CHOPS, PORK CHOP, 1/4 CHICKEN). Only the meal includes fries, 2 toast and salad", 
+        description: "BOEREWORS, LAMB CHOPS, PORK CHOP, 1/4 CHICKEN", 
         category: "grill_specials", 
-        image: "assets/images/menu/meaty meats.png",
+        image: "assets/images/menu/Mega grill final.jpeg",
         hasMealOption: true
     },
     
     // TRADITIONAL DISHES
     { id: 601, name: "PHUTHU RICE BEEF CURRY", price: 85.00, description: "Phuthu rice with beef curry and 2 salads", category: "traditional_dishes", image: "assets/images/menu/ricechircken.jpeg" },
     { id: 602, name: "DOMBOLO & MEATY BONES", price: 50.00, description: "Dombolo with meaty bones and 2 salads", category: "traditional_dishes", image: "assets/images/menu/domboloe.jpeg" },
-    { id: 603, name: "CHICKEN LIVERS", price: 35.00, description: "Chicken livers served with 2 rolls", category: "traditional_dishes", image: "assets/images/menu/CHICKEN LIVERS With 2 Rolls.jpg" },
+    { id: 603, name: "CHICKEN LIVERS", price: 35.00, hotPrice: 35.00, mildPrice: 35.00, description: "Chicken livers served with 2 rolls", category: "traditional_dishes", image: "assets/images/menu/CHICKEN LIVERS With 2 Rolls.jpg", hasSpiceOption: true },
     { id: 604, name: "INHLoKo no PHUTHU", price: 70.00, description: "Traditional dish with phuthu", category: "traditional_dishes", image: "assets/images/menu/INHLoKo no PHuthu.jpg" },
     { id: 605, name: "INyAMANgaPhakathi + no PHUTHU", price: 50.00, description: "Traditional dish with phuthu", category: "traditional_dishes", image: "assets/images/menu/INyAMANgaPhakathi + no Phuthu.jpeg" },
     
@@ -2248,7 +2300,7 @@ const menuItems = [
   { 
     id: 901, 
     name: "440ml SODA", 
-    price: 25.00,
+    price: 17.00,
     description: "Assorted flavors", 
     category: "cold_drinks", 
     image: "assets/images/pics/440 mls drinks.jpg"
@@ -2256,7 +2308,7 @@ const menuItems = [
   { 
     id: 902, 
     name: "CAPPY JUICE 300ml", 
-    price: 22.00,
+    price: 23.00,
     description: "Fruit juice in can", 
     category: "cold_drinks", 
     image: "assets/images/pics/cappy 300mls can fruit juice.jpg"
@@ -2267,7 +2319,7 @@ const menuItems = [
   { 
     id: 903, 
     name: "FRUIT JUICE 500ml", 
-    price: 28.00,
+    price: 18.00,
     description: "Bottled fruit juice", 
     category: "cold_drinks", 
     image: "assets/images/pics/fruit juice bottle 500mls.jpg"
@@ -2275,7 +2327,7 @@ const menuItems = [
   { 
     id: 904, 
     name: "ICED TEA", 
-    price: 24.00,
+    price: 19.00,
     description: "Refreshing iced tea", 
     category: "cold_drinks", 
     image: "assets/images/pics/Iced tea.jpg"
@@ -2283,7 +2335,7 @@ const menuItems = [
   { 
     id: 905, 
     name: "GRAPETISER/APPLETISER", 
-    price: 35.00,
+    price: 34.00,
     description: "Sparkling fruit drinks", 
     category: "cold_drinks", 
     image: "assets/images/pics/grapetiser and appletiser.jpg"
@@ -2291,7 +2343,7 @@ const menuItems = [
   { 
     id: 906, 
     name: "SODA 300ml BOTTLE", 
-    price: 20.00,
+    price: 15.00,
     description: "Various soda brands", 
     category: "cold_drinks", 
     image: "assets/images/pics/Soda 300mls bottles.jpg"
@@ -2299,7 +2351,7 @@ const menuItems = [
   { 
     id: 907, 
     name: "SODA 300ml CAN", 
-    price: 18.00,
+    price: 17.00,
     description: "Canned sodas", 
     category: "cold_drinks", 
     image: "assets/images/pics/Soda 300mls can.jpg"
@@ -2307,18 +2359,28 @@ const menuItems = [
   { 
     id: 908, 
     name: "SODA 500ml BOTTLE", 
-    price: 25.00,
+    price: 18.00,
     description: "Large bottled sodas", 
     category: "cold_drinks", 
     image: "assets/images/pics/soda 500mls bottle.jpg"
   },
   { 
     id: 909, 
-    name: "WADUR", 
-    price: 15.00,
-    description: "Energy drink", 
+    name: "WATER (STILL OR SPARKLING)", 
+    price: 14.00,
+    description: "Refreshing water", 
     category: "cold_drinks", 
     image: "assets/images/pics/Wadur.jpg"
+  },
+  { 
+    id: 910, 
+    name: "MOCKTAILS", 
+    price: 18.00,
+    megaPrice: 35.00,
+    description: "Refreshing non-alcoholic cocktails", 
+    category: "cold_drinks", 
+    image: "assets/images/menu/mocktails.jpeg",
+    hasMegaOption: true
   },
 
   
@@ -2530,7 +2592,8 @@ function renderCart() {
 }
 
 function addToCart(itemId, option = 'normal') {
-    const item = menuItems.find(i => i.id === itemId);
+    const allItems = [...menuItems, ...hotDrinks];
+    const item = allItems.find(i => i.id === itemId);
     if (!item) return;
 
     // Determine the price based on the option
@@ -2539,6 +2602,10 @@ function addToCart(itemId, option = 'normal') {
         selectedPrice = item.mealPrice;
     } else if (option === 'mega' && item.hasMegaOption) {
         selectedPrice = item.megaPrice;
+    } else if (option === 'hot' && item.hasSpiceOption) {
+        selectedPrice = item.hotPrice;
+    } else if (option === 'mild' && item.hasSpiceOption) {
+        selectedPrice = item.mildPrice;
     }
 
     // Check if item with same ID and option already exists in cart
@@ -2734,7 +2801,8 @@ function handleBookingFormSubmit(e) {
 // --- Menu Rendering and Filtering Functions ---
 
 function getUniqueCategories() {
-    const categories = menuItems.map(item => item.category);
+    const allItems = [...menuItems, ...hotDrinks];
+    const categories = allItems.map(item => item.category);
     return ['all', ...new Set(categories)];
 }
 
@@ -2766,11 +2834,12 @@ function renderFilterButtons() {
 function renderMenuItems(filter = 'all') {
     if (!menuGrid) return;
     menuGrid.innerHTML = '';
+    const allItems = [...menuItems, ...hotDrinks];
     
     const categories = getUniqueCategories().filter(c => c !== 'all');
     
     categories.forEach(category => {
-        const filteredItems = menuItems.filter(item => item.category === category);
+        const filteredItems = allItems.filter(item => item.category === category);
         
         if (filteredItems.length > 0 && (filter === 'all' || filter === category)) {
             // Add Category Title
@@ -2789,26 +2858,31 @@ function renderMenuItems(filter = 'all') {
                 
                 // Add meal options for items that have them
                 if (item.hasMealOption) {
-                    // Determine what's included in the meal based on category
+                    // Determine what sides come with the meal based on category
                     let mealIncludes = '';
-                    if (item.category === 'grills') {
-                        mealIncludes = '<small style="display: block; margin-top: 8px; color: #666; font-size: 0.85rem; font-weight: 500;">Base: Item only | Meal: + Fries</small>';
-                    } else if (item.category === 'grill_specials') {
-                        mealIncludes = '<small style="display: block; margin-top: 8px; color: #666; font-size: 0.85rem; font-weight: 500;">Base: Item only | Meal: + Fries, 2 Toast & Salad</small>';
-                    } else if (item.category === 'burgers' || item.category === 'wraps') {
-                        mealIncludes = '<small style="display: block; margin-top: 8px; color: #666; font-size: 0.85rem; font-weight: 500;">Base: Item only | Meal: + Fries</small>';
+                    if (item.category === 'grill_specials') {
+                        mealIncludes = ' + Fries, 2 Toast & Salad';
+                    } else if (item.category === 'grills' || item.category === 'burgers' || item.category === 'wraps') {
+                        mealIncludes = ' + Fries';
                     } else {
-                        mealIncludes = '<small style="display: block; margin-top: 8px; color: #666; font-size: 0.85rem; font-weight: 500;">Base: Item only | Meal: Includes sides</small>';
+                        mealIncludes = ' + Sides';
                     }
                     
                     optionHTML = `
                         <div class="option-selection">
-                            <div>Select option:</div>
+                            <div style="margin-bottom: 8px; font-weight: 600; color: #333;">Select option:</div>
                             <div class="option-buttons">
-                                <button class="option-btn active" data-option="normal">Base <span class="option-price">${formatPrice(item.price)}</span></button>
-                                <button class="option-btn" data-option="meal">Meal <span class="option-price">${formatPrice(item.mealPrice)}</span></button>
+                                <button class="option-btn active" data-option="normal">
+                                    <div style="font-weight: 600;">Item Only</div>
+                                    <div style="font-size: 0.85rem; color: #666; margin-top: 2px;">Base item only</div>
+                                    <span class="option-price">${formatPrice(item.price)}</span>
+                                </button>
+                                <button class="option-btn" data-option="meal">
+                                    <div style="font-weight: 600;">Meal</div>
+                                    <div style="font-size: 0.85rem; color: #666; margin-top: 2px;">Item${mealIncludes}</div>
+                                    <span class="option-price">${formatPrice(item.mealPrice)}</span>
+                                </button>
                             </div>
-                            ${mealIncludes}
                         </div>
                     `;
                 }
@@ -2826,6 +2900,25 @@ function renderMenuItems(filter = 'all') {
                     `;
                 }
                 
+                // Add spice options (hot/mild)
+                if (item.hasSpiceOption) {
+                    optionHTML = `
+                        <div class="option-selection">
+                            <div style="margin-bottom: 8px; font-weight: 600; color: #333;">Select spice level:</div>
+                            <div class="option-buttons">
+                                <button class="option-btn active" data-option="mild">
+                                    <div style="font-weight: 600;">Mild</div>
+                                    <span class="option-price">${formatPrice(item.mildPrice)}</span>
+                                </button>
+                                <button class="option-btn" data-option="hot">
+                                    <div style="font-weight: 600;">Hot</div>
+                                    <span class="option-price">${formatPrice(item.hotPrice)}</span>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                }
+                
                 // For items without meal options but with different prices, show both prices
                 let priceDisplay = formatPrice(item.price);
                 if (item.mealPrice && !item.hasMealOption) {
@@ -2834,7 +2927,7 @@ function renderMenuItems(filter = 'all') {
                 
                 menuItemElement.innerHTML = `
                     <div class="menu-item-img">
-                        <img src="${item.image || 'assets/images/menu/placeholder.jpg'}" alt="${item.name}">
+                        <img src="${item.image || 'assets/images/menu/placeholder.jpg'}" alt="${item.name}" data-item-id="${item.id}" data-item-name="${item.name}">
                     </div>
                     <div class="item-details">
                         <div>

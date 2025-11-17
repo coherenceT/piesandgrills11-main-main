@@ -135,7 +135,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
+            padding: 20px 0;
             position: relative;
         }
 
@@ -153,8 +153,8 @@
         }
 
         .logo img {
-            width: 100px;
-            height: 100px;
+            width: 150px;
+            height: 150px;
             border-radius: 2.5cm;
             object-fit: cover;
             border: 3px solid var(--secondary);
@@ -163,17 +163,25 @@
 
         /* Mobile logo adjustments */
         @media (max-width: 768px) {
+            .header-container {
+                padding: 15px 0;
+            }
+            
             .logo img {
-                width: 80px;
-                height: 80px;
+                width: 160px;
+                height: 160px;
                 border-radius: 1.5cm;
             }
         }
 
         @media (max-width: 480px) {
+            .header-container {
+                padding: 12px 0;
+            }
+            
             .logo img {
-                width: 70px;
-                height: 70px;
+                width: 140px;
+                height: 140px;
                 border-radius: 1.5cm;
             }
         }
@@ -1176,7 +1184,7 @@
 
         @media (max-width: 768px) {
             .header-container {
-                padding: 10px 0;
+                padding: 15px 0;
             }
             
             nav {
@@ -1661,14 +1669,13 @@
         <div class="container">
             <div class="section-title">
                 <h2>Our Story</h2>
-                <p>Discover the coastal passion and tradition behind our delicious creations</p>
             </div>
             <div class="about-content">
                 <div class="about-text">
                     <h3>Welcome to PIES AND GRILLS</h3>
                     <p>Nestled in the heart of Pietermaritzburg, PIES AND GRILLS is a culinary destination where traditional comfort food meets contemporary flair. Our restaurant was born from a passion for creating exceptional dining experiences that celebrate the rich culinary heritage of South Africa while embracing modern techniques and flavors.</p>
                     <p>At the heart of our kitchen is a commitment to quality and authenticity. We source the freshest local ingredients, from prime cuts of meat to seasonal vegetables, ensuring every dish tells a story of flavor and craftsmanship. Our signature pies feature buttery, flaky crusts enveloping rich, savory fillings that have become the talk of the town.</p>
-                    <p>Our grill masters take pride in their art, carefully preparing each cut to perfection over open flames. Whether it's our succulent steaks, tender grilled chicken, or perfectly charred seafood, every dish reflects our dedication to culinary excellence. We believe that great food brings people together, creating memories that last long after the meal is over.</p>
+                    <p>Our grill masters take pride in their art, carefully preparing each cut to perfection over open flames. Whether it's our succulent steaks or tender grilled chicken, every dish reflects our dedication to culinary excellence. We believe that great food brings people together, creating memories that last long after the meal is over.</p>
                     <a href="#menu" class="btn">Explore Our Menu</a>
                 </div>
                 <div class="about-image">
@@ -1975,60 +1982,402 @@
 // Menu Data with ZAR prices - Consolidated and updated
 const menuItems = [
     // BREAKFAST
-    { id: 101, name: "STANDARD", price: 79.00, description: "2-EGGS, 2 RASHERS OF BACON, GRILLED TOMATO & SLICE OF TOAST", category: "breakfast", image: "assets/images/menu/standard.jpg" },
+    { id: 101, name: "STANDARD BREAKFAST", price: 79.00, description: "2-EGGS, 2 RASHERS OF BACON, GRILLED TOMATO & SLICE OF TOAST", category: "breakfast", image: "assets/images/menu/standard.jpg" },
     { id: 102, name: "MINI HUNGRY", price: 74.00, description: "1 EGG, 1 VIENNA, 2 RASHERS OF BACON, GRILLED TOMATO, 1 SLICE OF TOAST", category: "breakfast", image: "assets/images/menu/toastand egg.png" },
-    { id: 103, name: "THE WORSO WAY", price: 95.00, description: "2 EGGS, 2 RASHERS OF BACON, 1 VIENNA, GRILLED MUSHROOMS, GRILLED TOMATO, 2 SLICES OF TOAST", category: "breakfast", image: "assets/images/menu/the pies way.jpg" },
-    { id: 104, name: "BUILD YOUR BREAKFAST", price: 78.00, description: "Choose your items: MUSHROOMS R25, BAKED BEANS R20, SLICED CHEESE R10, FRIED EGG R10, TOASTED BREAD (X2) R7, BREAD ROLL/BUN R6. Please specify your choices on WhatsApp.", category: "breakfast", image: "assets/images/menu/buildyourbreakfast.jpeg" },
-    { id: 105, name: "CHEESE & TOMATO SANDWICH", price: 36.00, description: "Classic sandwich with cheese and tomato", category: "breakfast", image: "assets/images/menu/cheeseandtomatosandwich.jpg" },
-    { id: 106, name: "CHICKEN & MAYO SANDWICH", price: 36.00, description: "Shredded chicken with creamy mayonnaise", category: "breakfast", image: "assets/images/menu/chickenandmayosandwich.jpg" },
-    { id: 107, name: "CHEESE & HAM SANDWICH", price: 36.00, description: "Slices of ham and cheese", category: "breakfast", image: "assets/images/menu/CHEESE & HAM SANDWICH.jpg" },
-    { id: 108, name: "BACON & CHEESE SANDWICH", price: 36.00, description: "Crispy bacon and melted cheese", category: "breakfast", image: "assets/images/menu/BACON & CHEESE SANDWICH.jpg" },
-    { id: 109, name: "BACON & EGG SANDWICH", price: 38.00, description: "Bacon and fried egg combo", category: "breakfast", image: "assets/images/menu/BACON & EGG SANDWICH.jpeg" },
-    { id: 110, name: "CLUB SANDWICH", price: 45.00, description: "Triple-decker with chicken, bacon, lettuce, and tomato", category: "breakfast", image: "assets/images/menu/CLUB SANDWICH.jpg" },
-    { id: 111, name: "FRENCH FRIES", price: 25.00, description: "Crispy golden french fries", category: "breakfast", image: "assets/images/menu/frenchfries.jpg" },
-    // BURGERS
-    { id: 201, name: "BEEF BURGER", price: 85.00, description: "150g pure beef patty with lettuce, tomato, onion, and sauce", category: "burgers", image: "assets/images/menu/beefburger.jpg" },
-    { id: 202, name: "CHEESE BURGER", price: 90.00, description: "Beef patty topped with a slice of melted cheese", category: "burgers", image: "assets/images/menu/Cheeseburger.jpg" },
-    { id: 203, name: "CHICKEN BURGER", price: 80.00, description: "Grilled chicken fillet with fresh toppings", category: "burgers", image: "assets/images/menu/CHICKEN BURGER.jpg" },
+    { id: 103, name: "THE WORSO WAY", price: 95.00, description: "2 EGGS, 2 RASHERS OF BACON, GRILLED MUSHROOMS, GRILLED TOMATO, 2 SLICES OF TOAST", category: "breakfast", image: "assets/images/menu/theworso way.jpg" },
+    { id: 104, name: "THE CLUB HOUSE", price: 110.00, description: "2 eggs, 3 rashers of bacon, 1 pork sausage, grilled mushrooms, grilled tomato, baked beans, and 2 slices of toast", category: "breakfast", image: "assets/images/menu/clubhouse.jpeg" },
+    { id: 105, name: "AVO-EGG", price: 75.00, description: "Sliced avocado, scrambled eggs, 2 viennas, onion rings, 2 slices of toast", category: "breakfast", image: "assets/images/menu/breakfast-avo-egg.jpg" },
+    { id: 106, name: "MINCE ON TOAST", price: 85.00, description: "Saucy mince with beans, melted cheddar cheese, egg, 2 slices of toast", category: "breakfast", image: "assets/images/menu/breakfast-mince-on-toast.jpg" },
+    { id: 107, name: "BREAKFAST BANGERS", price: 79.00, description: "Chicken/Beef/Pork/Mutton 2 bangers, 2 eggs, 2 toasts", category: "breakfast", image: "assets/images/menu/standard.jpg" },
+    { id: 108, name: "OMELETTE", price: 85.00, description: "3 eggs, served with 2 toast slices and fillings of your choice (Bacon/Onion/Tomato/Cheese/Ham/Green pepper/Mushrooms)", category: "breakfast", image: "assets/images/menu/Omelet as a meal.jpg" },
     
-    // WRAPS
-    { id: 301, name: "CHICKEN MAYO WRAP", price: 75.00, description: "Tender chicken and mayo wrapped in a soft tortilla", category: "wraps", image: "assets/images/menu/CHICKEN MAYO WRAP.jpg" },
-    { id: 302, name: "BEEF STRIP WRAP", price: 80.00, description: "Grilled beef strips with peppers and onions", category: "wraps", image: "assets/images/menu/BEEF STRIP WRAP.jpg" },
+    // BUILD YOUR BREAKFAST (Add-ons) - SEPARATE SECTION
+    { id: 116, name: "MUSHROOMS", price: 25.00, description: "Grilled mushrooms - perfect addition to any breakfast", category: "build_your_breakfast", image: "assets/images/menu/MUSHROOMS.jpg" },
+    { id: 117, name: "BAKED BEANS", price: 20.00, description: "Hearty baked beans - a classic breakfast side", category: "build_your_breakfast", image: "assets/images/menu/Baked-Beans.jpg" },
+    { id: 118, name: "SLICED CHEESE", price: 10.00, description: "Sliced cheese - melt it on toast or add to any dish", category: "build_your_breakfast", image: "assets/images/menu/SLICED CHEESE.jpg" },
+    { id: 119, name: "FRIED EGG", price: 10.00, description: "Perfectly fried egg - sunny side up or your preference", category: "build_your_breakfast", image: "assets/images/menu/FRIED EGG.jpg" },
+    { id: 120, name: "TOASTED BREAD (X2)", price: 7.00, description: "Two slices of golden toasted bread", category: "build_your_breakfast", image: "assets/images/menu/Toastedbread.jpg" },
+    { id: 121, name: "BREAD ROLL OR BUN", price: 6.00, description: "Fresh bread roll or bun - perfect for breakfast sandwiches", category: "build_your_breakfast", image: "assets/images/menu/breadroll.jpg" },
     
-    // GRILLS
-    { id: 401, name: "GRILLED CHICKEN BREAST", price: 120.00, description: "Marinated chicken breast grilled to perfection", category: "grills", image: "assets/images/menu/GRILLED CHICKEN BREAST.jpg" },
-    { id: 402, name: "BEEF STEAK GRILL", price: 150.00, description: "Succulent beef steak with a choice of sides", category: "grills", image: "assets/images/menu/BEEF STEAK GRILL.jpg" },
-    { id: 403, name: "GRILLED SALMON", price: 249.00, description: "Fresh salmon fillet grilled to perfection with herbs", category: "grills", image: "assets/images/menu/griledsalomon.jpg" },
-    { id: 404, name: "GRILLED RIBEYE STEAK", price: 299.00, description: "Premium ribeye steak with grilled vegetables and mashed potatoes", category: "grills", image: "assets/images/menu/GRILLED RIBEYE STEAK.jpg" },
+    // SANDWICHES
+    { id: 109, name: "CHEESE & TOMATO SANDWICH", price: 35.00, description: "Classic sandwich with cheese and tomato", category: "sandwiches", image: "assets/images/menu/cheeseandtomatosandwich.jpg" },
+    { id: 110, name: "CHICKEN & MAYO SANDWICH", price: 36.00, description: "Shredded chicken with creamy mayonnaise", category: "sandwiches", image: "assets/images/menu/sandwich-chicken-mayo.jpg" },
+    { id: 111, name: "CHEESE & HAM SANDWICH", price: 36.00, description: "Slices of ham and cheese", category: "sandwiches", image: "assets/images/menu/sandwich-cheese-ham.jpg" },
+    { id: 112, name: "BACON & CHEESE SANDWICH", price: 36.00, description: "Crispy bacon and melted cheese", category: "sandwiches", image: "assets/images/menu/sandwich-bacon-cheese.jpg" },
+    { id: 113, name: "BACON & EGG SANDWICH", price: 38.00, description: "Bacon and fried egg combo", category: "sandwiches", image: "assets/images/menu/sandwich-bacon-egg.jpg" },
+    { id: 114, name: "CLUB SANDWICH", price: 45.00, description: "Triple-decker with bacon, egg, ham, and cheese", category: "sandwiches", image: "assets/images/menu/breakfast-club-house.jpg" },
+    { id: 115, name: "FRENCH FRIES", price: 25.00, description: "Crispy golden french fries", category: "sandwiches", image: "assets/images/menu/side-french-fries.jpg" },
     
-    // PIES & SNACKS
-    { id: 501, name: "CLASSIC BEEF PIE", price: 189.00, description: "Tender beef chunks in rich gravy, encased in flaky pastry", category: "pies_snacks", image: "assets/images/menu/CLASSIC BEEF PIE.jpg" },
-    { id: 502, name: "CHICKEN & MUSHROOM PIE", price: 169.00, description: "Creamy chicken and mushroom filling in golden pastry", category: "pies_snacks", image: "assets/images/menu/CHICKEN_MUSHROOM_PIE.jpg" },
-    { id: 503, name: "VEGETABLE PIE", price: 149.00, description: "Seasonal vegetables in a creamy sauce with herb pastry", category: "pies_snacks", image: "assets/images/menu/VEGETABLE_PIE.jpg" },
-    { id: 504, name: "ASSORTED PIES (X1)", price: 28.00, description: "Various savory pies", category: "pies_snacks", image: "assets/images/menu/ASSORTED_PIES.jpg" },
-    { id: 505, name: "SAUSAGE ROLLS (X1)", price: 27.00, description: "Classic sausage rolls", category: "pies_snacks", image: "assets/images/menu/SAUSAGE_ROLLS.jpg" },
-    { id: 506, name: "ASSORTED SAMOSAS (X1)", price: 12.00, description: "Savory filled pastries", category: "pies_snacks", image: "assets/images/menu/ASSORTED_SAMOSAS.jpeg" },
-    { id: 507, name: "SLICED PIZZA (X1)", price: 25.00, description: "Pizza by the slice", category: "pies_snacks", image: "assets/images/menu/SLICED_PIZZA.jpg" },
+    // BURGERS - Updated with meal prices
+    { 
+        id: 201, 
+        name: "CHICKEN/BEEF BURGER", 
+        price: 40.00, 
+        mealPrice: 60.00,
+        description: "Chicken/beef patty, tomato, lettuce, and sauce", 
+        category: "burgers", 
+        image: "assets/images/menu/Chickenbeef burber.jpg",
+        hasMealOption: true
+    },
+    { 
+        id: 202, 
+        name: "CHEESE CHICKEN BURGER", 
+        price: 45.00, 
+        mealPrice: 60.00,
+        description: "Chicken patty, cheese, tomato, lettuce and sauce", 
+        category: "burgers", 
+        image: "assets/images/menu/Cheese chicken burger.jpg",
+        hasMealOption: true
+    },
+    { 
+        id: 203, 
+        name: "CHEESE BEEF BURGER", 
+        price: 45.00, 
+        mealPrice: 65.00,
+        description: "Beef patty, cheese, tomato, lettuce and sauce", 
+        category: "burgers", 
+        image: "assets/images/menu/Cheese beef burber.jpg",
+        hasMealOption: true
+    },
+    { 
+        id: 204, 
+        name: "CHICKEN BURGER FILLET", 
+        price: 45.00, 
+        mealPrice: 65.00,
+        description: "Chicken fillet, cheese, tomato, lettuce and sauce", 
+        category: "burgers", 
+        image: "assets/images/menu/Chicken burger served with fries.jpg",
+        hasMealOption: true
+    },
     
-    // DRINKS & DESSERTS
-    { id: 601, name: "APPLE PIE", price: 89.00, description: "Homemade apple pie with cinnamon and a scoop of vanilla ice cream", category: "drinks_desserts", image: "assets/images/menu/APPLE_PIE.jpg" },
-    { id: 602, name: "BERRY CHEESECAKE", price: 99.00, description: "Creamy cheesecake topped with fresh mixed berries", category: "drinks_desserts", image: "assets/images/menu/BERRY CHEESECAKE.jpg" },
-    { id: 603, name: "ASSORTED MUFFINS/SCONES (X1)", price: 20.00, description: "Sweet treats", category: "drinks_desserts", image: "assets/images/menu/ASSORTED MUFFINS:SCONES.jpg" },
-    { id: 604, name: "COLD DRINKS", price: 25.00, description: "Soda, Appletiser/Grapetiser, Fruit Juice, Ice Tea, Water (Avg Price)", category: "drinks_desserts", image: "assets/images/menu/COLD_DRINKS.jpg" },
-    { id: 605, name: "HOT DRINKS", price: 20.00, description: "Ground Coffee, Nescafe, Cappuccino, Jacobs Coffee, Milo, Tea (Avg Price)", category: "drinks_desserts", image: "assets/images/menu/hotdrinks.jpg" },
-    { id: 606, name: "CRAFT BEER SELECTION", price: 69.00, description: "Rotating selection of local craft beers", category: "drinks_desserts", image: "assets/images/menu/ASSORTEDalchohol.jpg" },
+    // WRAPS - Updated with options
+    { 
+        id: 301, 
+        name: "CHICKEN WRAP (SMALL)", 
+        price: 45.00, 
+        mealPrice: 68.00,
+        description: "Sliced chicken, cheese, veggies and sauce", 
+        category: "wraps", 
+        image: "assets/images/menu/Chicken wrap as a meal.jpg",
+        hasMealOption: true
+    },
+    { 
+        id: 302, 
+        name: "CHICKEN WRAP (LARGE)", 
+        price: 58.00, 
+        mealPrice: 74.00,
+        description: "Sliced chicken, cheese, veggies and sauce", 
+        category: "wraps", 
+        image: "assets/images/menu/Chicken wrap as a meal.jpg",
+        hasMealOption: true
+    },
+    { 
+        id: 303, 
+        name: "BEEF WRAP (SMALL)", 
+        price: 48.00, 
+        mealPrice: 75.00,
+        description: "Wors, cheese, veggies and sauce", 
+        category: "wraps", 
+        image: "assets/images/menu/BEEF STRIP WRAP.jpg",
+        hasMealOption: true
+    },
+    { 
+        id: 304, 
+        name: "BEEF WRAP (LARGE)", 
+        price: 60.00, 
+        mealPrice: 78.00,
+        description: "Wors, cheese, veggies and sauce", 
+        category: "wraps", 
+        image: "assets/images/menu/BEEF STRIP WRAP.jpg",
+        hasMealOption: true
+    },
+    
+    // SALADS
+    { id: 401, name: "GREEN SALAD", price: 45.00, description: "Crisp salad green, lettuce, cucumber, green pepper, tomato, carrots, feta cheese", category: "salads", image: "assets/images/menu/tomatosalad.jpg" },
+    
+    // THE GRILL SECTION (Meals served with Fries)
+    { 
+        id: 501, 
+        name: "HOT DOG", 
+        price: 25.00, 
+        mealPrice: 45.00,
+        description: "Classic hot dog", 
+        category: "grills", 
+        image: "assets/images/menu/Hot dog As a meal.jpg",
+        hasMealOption: true
+    },
+    { 
+        id: 502, 
+        name: "BOEREWORS ROLL", 
+        price: 30.00, 
+        mealPrice: 48.00,
+        description: "Traditional South African boerewors in a roll", 
+        category: "grills", 
+        image: "assets/images/menu/boerewors-roll.jpg",
+        hasMealOption: true
+    },
+    { 
+        id: 503, 
+        name: "QUARTER CHICKEN GRILL", 
+        price: 45.00, 
+        mealPrice: 65.00,
+        description: "Quarter chicken grill", 
+        category: "grills", 
+        image: "assets/images/menu/quater.jpeg",
+        hasMealOption: true
+    },
+    
+    // MEALS SERVED WITH FRIES, 2 TOAST AND SALAD
+    { 
+        id: 504, 
+        name: "QUARTER CHICKEN GRILL", 
+        price: 45.00, 
+        mealPrice: 85.00,
+        description: "Quarter chicken grill", 
+        category: "grill_specials", 
+        image: "assets/images/menu/quaterchickenandchips.jpg",
+        hasMealOption: true
+    },
+    { 
+        id: 505, 
+        name: "RUMP STEAK", 
+        price: 75.00, 
+        mealPrice: 125.00,
+        description: "250 grams of rump steak", 
+        category: "grill_specials", 
+        image: "assets/images/menu/steakandtoast.jpg",
+        hasMealOption: true
+    },
+    { 
+        id: 506, 
+        name: "T-BONE STEAK", 
+        price: 79.00, 
+        mealPrice: 135.00,
+        description: "250 grams of T-Bone steak (Grilled)", 
+        category: "grill_specials", 
+        image: "assets/images/menu/steak-t-bone.jpg",
+        hasMealOption: true
+    },
+    { 
+        id: 507, 
+        name: "PORK CHOPS", 
+        price: 65.00, 
+        mealPrice: 120.00,
+        description: "400 grams of pork chops", 
+        category: "grill_specials", 
+        image: "assets/images/menu/pork-chops.jpg",
+        hasMealOption: true
+    },
+    { 
+        id: 508, 
+        name: "LAMB CHOPS", 
+        price: 150.00, 
+        mealPrice: 150.00,
+        description: "Lamb chops", 
+        category: "grill_specials", 
+        image: "assets/images/menu/lamb-chops.jpg",
+        hasMealOption: false
+    },
+    { 
+        id: 509, 
+        name: "MEGA GRILL", 
+        price: 160.00, 
+        mealPrice: 210.00,
+        description: "BOEREWORS, LAMB CHOPS, PORK CHOP, 1/4 CHICKEN", 
+        category: "grill_specials", 
+        image: "assets/images/menu/meaty meats.png",
+        hasMealOption: true
+    },
+    
+    // TRADITIONAL DISHES
+    { id: 601, name: "PHUTHU RICE BEEF CURRY", price: 85.00, description: "Phuthu rice with beef curry and 2 salads", category: "traditional_dishes", image: "assets/images/menu/ricechircken.jpeg" },
+    { id: 602, name: "DOMBOLO & MEATY BONES", price: 50.00, description: "Dombolo with meaty bones and 2 salads", category: "traditional_dishes", image: "assets/images/menu/domboloe.jpeg" },
+    { id: 603, name: "CHICKEN LIVERS", price: 35.00, hotPrice: 35.00, mildPrice: 35.00, description: "Chicken livers served with 2 rolls", category: "traditional_dishes", image: "assets/images/menu/CHICKEN LIVERS With 2 Rolls.jpg", hasSpiceOption: true },
+    { id: 604, name: "INHLoKo no PHUTHU", price: 70.00, description: "Traditional dish with phuthu", category: "traditional_dishes", image: "assets/images/menu/INHLoKo no PHuthu.jpg" },
+    { id: 605, name: "INyAMANgaPhakathi + no PHUTHU", price: 50.00, description: "Traditional dish with phuthu", category: "traditional_dishes", image: "assets/images/menu/INyAMANgaPhakathi + no Phuthu.jpeg" },
+    
+   { id: 501, name: "PEPPER STEAK", price: 28.00, description: "Tender beef chunks in rich gravy, encased in flaky pastry", category: "assorted_pies", image: "assets/images/menu/CLASSIC BEEF PIE.jpg" },
+{ id: 502, name: "CHICKEN & MUSHROOM PIE", price: 28.00, description: "Creamy chicken and mushroom filling in golden pastry", category: "assorted_pies", image: "assets/images/menu/CHICKEN_MUSHROOM_PIE.jpg" },
+{ id: 503, name: "STEAK AND KIDNEY", price: 28.00, description: "Seasonal vegetables in a creamy sauce with herb pastry", category: "assorted_pies", image: "assets/images/menu/Steak and kidney pie.jpg" },
+{ id: 506, name: "ASSORTED SAMOSAS (X1)", price: 12.00, description: "Savory filled pastries", category: "assorted_pies", image: "assets/images/menu/ASSORTED_SAMOSAS.jpeg" },
+{ id: 607, name: "ASSORTED MUFFINS/SCONES (X1)", price: 20.00, description: "Sweet treats", category: "assorted_pies", image: "assets/images/menu/ASSORTED MUFFINS_SCONES.jpg" },
+    // COLD DRINKS
+
+  // 🧊 COLD DRINKS
+ // 🧊 COLD DRINKS
+
+  { 
+    id: 901, 
+    name: "440ml SODA", 
+    price: 25.00,
+    description: "Assorted flavors", 
+    category: "cold_drinks", 
+    image: "assets/images/pics/440 mls drinks.jpg"
+  },
+  { 
+    id: 902, 
+    name: "CAPPY JUICE 300ml", 
+    price: 22.00,
+    description: "Fruit juice in can", 
+    category: "cold_drinks", 
+    image: "assets/images/pics/cappy 300mls can fruit juice.jpg"
+  },
+
+
+  
+  { 
+    id: 903, 
+    name: "FRUIT JUICE 500ml", 
+    price: 28.00,
+    description: "Bottled fruit juice", 
+    category: "cold_drinks", 
+    image: "assets/images/pics/fruit juice bottle 500mls.jpg"
+  },
+  { 
+    id: 904, 
+    name: "ICED TEA", 
+    price: 24.00,
+    description: "Refreshing iced tea", 
+    category: "cold_drinks", 
+    image: "assets/images/pics/Iced tea.jpg"
+  },
+  { 
+    id: 905, 
+    name: "GRAPETISER/APPLETISER", 
+    price: 35.00,
+    description: "Sparkling fruit drinks", 
+    category: "cold_drinks", 
+    image: "assets/images/pics/grapetiser and appletiser.jpg"
+  },
+  { 
+    id: 906, 
+    name: "SODA 300ml BOTTLE", 
+    price: 20.00,
+    description: "Various soda brands", 
+    category: "cold_drinks", 
+    image: "assets/images/pics/Soda 300mls bottles.jpg"
+  },
+  { 
+    id: 907, 
+    name: "SODA 300ml CAN", 
+    price: 18.00,
+    description: "Canned sodas", 
+    category: "cold_drinks", 
+    image: "assets/images/pics/Soda 300mls can.jpg"
+  },
+  { 
+    id: 908, 
+    name: "SODA 500ml BOTTLE", 
+    price: 25.00,
+    description: "Large bottled sodas", 
+    category: "cold_drinks", 
+    image: "assets/images/pics/soda 500mls bottle.jpg"
+  },
+  { 
+    id: 909, 
+    name: "WADUR", 
+    price: 15.00,
+    description: "Energy drink", 
+    category: "cold_drinks", 
+    image: "assets/images/pics/Wadur.jpg"
+  },
+  { 
+    id: 910, 
+    name: "MOCKTAILS", 
+    price: 18.00,
+    megaPrice: 35.00,
+    description: "Refreshing non-alcoholic cocktails", 
+    category: "cold_drinks", 
+    image: "assets/images/menu/mocktails.jpeg",
+    hasMegaOption: true
+  },
+
+  
 ];
+
+// ☕ HOT DRINKS
+const hotDrinks = [
+  { 
+    id: 801, 
+    name: "GROUND COFFEE", 
+    price: 30.00, 
+    megaPrice: 34.00,
+    description: "Normal: R30 | Mega: R34", 
+    category: "hot_drinks", 
+    image: "assets/images/pics/Ground coffee.jpg",
+    hasMegaOption: true
+  },
+  { 
+    id: 802, 
+    name: "NESCAFÉ", 
+    price: 25.00, 
+    megaPrice: 30.00,
+    description: "Normal: R25 | Mega: R30", 
+    category: "hot_drinks", 
+    image: "assets/images/pics/Nescafe Coffee.jpg",
+    hasMegaOption: true
+  },
+  { 
+    id: 803, 
+    name: "CAPPUCCINO", 
+    price: 30.00, 
+    megaPrice: 34.00,
+    description: "Normal: R30 | Mega: R34", 
+    category: "hot_drinks", 
+    image: "assets/images/pics/Nescafe Cappucino.jpg",
+    hasMegaOption: true
+  },
+  { 
+    id: 804, 
+    name: "JACOB'S COFFEE", 
+    price: 30.00, 
+    megaPrice: 34.00,
+    description: "Normal: R30 | Mega: R34", 
+    category: "hot_drinks", 
+    image: "assets/images/pics/Jacobs coffee.jpg",
+    hasMegaOption: true
+  },
+  { 
+    id: 805, 
+    name: "JACOB'S CAPPUCCINO", 
+    price: 32.00, 
+    megaPrice: 36.00,
+    description: "Normal: R32 | Mega: R36", 
+    category: "hot_drinks", 
+    image: "assets/images/pics/Jacobs Cappucino.jpg",
+    hasMegaOption: true
+  },
+  { 
+    id: 806, 
+    name: "TEA", 
+    price: 20.00, 
+    megaPrice: 26.00,
+    description: "Five Roses, Joko, Rooibos | Normal: R20 | Mega: R26", 
+    category: "hot_drinks", 
+    image: "assets/images/pics/Tea(five roses, joko, rooi bos).jpg",
+    hasMegaOption: true
+  },
+  { 
+    id: 807, 
+    name: "MILO", 
+    price: 30.00, 
+    megaPrice: 34.00,
+    description: "Normal: R30 | Mega: R34", 
+    category: "hot_drinks", 
+    image: "assets/images/pics/Milo.jpg",
+    hasMegaOption: true
+  }
+];
+
 
 // Gallery Images
 const galleryImages = [
-    "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-    "https://images.unsplash.com/photo-1559339352-11d035aa65de?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
-    "https://images.unsplash.com/photo-1572715376701-98568319fd0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
-    "https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80",
-    "https://images.unsplash.com/photo-1554679665-f5537f187268?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
-    "https://images.unsplash.com/photo-1551218808-94e220e084d2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
-    "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1981&q=80",
-    "https://images.unsplash.com/photo-1563379091339-03246963d96c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+    "assets/images/pics/Gallery1.jpg",
+    "assets/images/pics/Gallery2.jpg",
+    "assets/images/pics/Gallery3.jpg",
+    "assets/images/pics/Gallery4.jpg",
+    "assets/images/pics/Gallery5.jpg",
+    "assets/images/pics/Gallery6.jpg"
 ];
 
 // Testimonials Data
@@ -2103,7 +2452,7 @@ function updateCartCount() {
 }
 
 function calculateTotal() {
-    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const total = cart.reduce((sum, item) => sum + (item.selectedPrice * item.quantity), 0);
     if (cartTotalPrice) {
         cartTotalPrice.textContent = formatPrice(total);
     }
@@ -2118,17 +2467,17 @@ function renderCart() {
     } else {
         if (whatsappOrderBtn) whatsappOrderBtn.disabled = false;
         cart.forEach(item => {
-            const itemTotal = item.price * item.quantity;
+            const itemTotal = item.selectedPrice * item.quantity;
             const li = document.createElement('li');
             li.innerHTML = `
                 <div class="cart-item-info">
-                    <span class="cart-item-name">${item.name}</span>
-                    <span class="cart-item-price">${formatPrice(item.price)} each</span>
+                    <span class="cart-item-name">${item.name}${item.option ? ` (${item.option})` : ''}</span>
+                    <span class="cart-item-price">${formatPrice(item.selectedPrice)} each</span>
                 </div>
                 <div class="cart-item-quantity">
-                    <button class="quantity-btn" data-id="${item.id}" data-action="decrease">-</button>
+                    <button class="quantity-btn" data-id="${item.id}" data-option="${item.option || 'normal'}" data-action="decrease">-</button>
                     <span>${item.quantity}</span>
-                    <button class="quantity-btn" data-id="${item.id}" data-action="increase">+</button>
+                    <button class="quantity-btn" data-id="${item.id}" data-option="${item.option || 'normal'}" data-action="increase">+</button>
                 </div>
                 <div class="cart-item-total">
                     ${formatPrice(itemTotal)}
@@ -2150,15 +2499,37 @@ function renderCart() {
     }
 }
 
-function addToCart(itemId) {
-    const item = menuItems.find(i => i.id === itemId);
+function addToCart(itemId, option = 'normal') {
+    const allItems = [...menuItems, ...hotDrinks];
+    const item = allItems.find(i => i.id === itemId);
     if (!item) return;
 
-    const cartItem = cart.find(i => i.id === itemId);
-    if (cartItem) {
-        cartItem.quantity += 1;
+    // Determine the price based on the option
+    let selectedPrice = item.price;
+    if (option === 'meal' && item.hasMealOption) {
+        selectedPrice = item.mealPrice;
+    } else if (option === 'mega' && item.hasMegaOption) {
+        selectedPrice = item.megaPrice;
+    } else if (option === 'hot' && item.hasSpiceOption) {
+        selectedPrice = item.hotPrice;
+    } else if (option === 'mild' && item.hasSpiceOption) {
+        selectedPrice = item.mildPrice;
+    }
+
+    // Check if item with same ID and option already exists in cart
+    const cartItemIndex = cart.findIndex(i => i.id === itemId && i.option === option);
+    
+    if (cartItemIndex !== -1) {
+        // Increment quantity if item already exists
+        cart[cartItemIndex].quantity += 1;
     } else {
-        cart.push({ ...item, quantity: 1 });
+        // Add new item to cart
+        cart.push({ 
+            ...item, 
+            quantity: 1, 
+            selectedPrice: selectedPrice,
+            option: option
+        });
     }
     
     updateCartCount();
@@ -2172,8 +2543,8 @@ function addToCart(itemId) {
     }, 500);
 }
 
-function updateQuantity(itemId, action) {
-    const itemIndex = cart.findIndex(i => i.id === itemId);
+function updateQuantity(itemId, option, action) {
+    const itemIndex = cart.findIndex(i => i.id === itemId && i.option === option);
     if (itemIndex === -1) return;
 
     if (action === 'increase') {
@@ -2197,9 +2568,10 @@ function generateWhatsAppLink() {
     let total = 0;
 
     cart.forEach(item => {
-        const itemTotal = item.price * item.quantity;
+        const itemTotal = item.selectedPrice * item.quantity;
         total += itemTotal;
-        orderText += `${item.quantity}x ${item.name} @ ${formatPrice(item.price)} each = ${formatPrice(itemTotal)}\n`;
+        const optionText = item.option && item.option !== 'normal' ? ` (${item.option.toUpperCase()})` : '';
+        orderText += `${item.quantity}x ${item.name}${optionText} @ ${formatPrice(item.selectedPrice)} each = ${formatPrice(itemTotal)}\n`;
     });
 
     orderText += `\n*TOTAL: ${formatPrice(total)}*`;
@@ -2235,13 +2607,14 @@ function updateCartDisplayBook() {
     let total = 0;
 
     cart.forEach(item => {
-        const itemTotal = item.price * item.quantity;
+        const itemTotal = item.selectedPrice * item.quantity;
         total += itemTotal;
+        const optionText = item.option && item.option !== 'normal' ? ` (${item.option.toUpperCase()})` : '';
 
         const cartItem = document.createElement('div');
         cartItem.className = 'cart-item';
         cartItem.innerHTML = `
-            <span class="cart-item-name">${item.quantity}x ${item.name}</span>
+            <span class="cart-item-name">${item.quantity}x ${item.name}${optionText}</span>
             <span class="cart-item-price">${formatPrice(itemTotal)}</span>
         `;
         bookListEl.appendChild(cartItem);
@@ -2335,7 +2708,8 @@ function handleBookingFormSubmit(e) {
 // --- Menu Rendering and Filtering Functions ---
 
 function getUniqueCategories() {
-    const categories = menuItems.map(item => item.category);
+    const allItems = [...menuItems, ...hotDrinks];
+    const categories = allItems.map(item => item.category);
     return ['all', ...new Set(categories)];
 }
 
@@ -2360,10 +2734,11 @@ function renderMenuItems(filter = 'all') {
     if (!menuGrid) return;
     menuGrid.innerHTML = '';
     
+    const allItems = [...menuItems, ...hotDrinks];
     const categories = getUniqueCategories().filter(c => c !== 'all');
     
     categories.forEach(category => {
-        const filteredItems = menuItems.filter(item => item.category === category);
+        const filteredItems = allItems.filter(item => item.category === category);
         
         if (filteredItems.length > 0 && (filter === 'all' || filter === category)) {
             // Add Category Title
@@ -2491,8 +2866,9 @@ function setupEventListeners() {
         if (!button) return;
 
         const itemId = parseInt(button.dataset.id);
+        const option = button.dataset.option || 'normal';
         const action = button.dataset.action;
-        updateQuantity(itemId, action);
+        updateQuantity(itemId, option, action);
     });
 
     // WhatsApp Order button
